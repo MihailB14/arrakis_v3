@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import Bond from './components/Bond'
+import BondList from './components/BondList'
 import Filter from './components/Filter';
 import './App.css';
 
@@ -13,12 +13,8 @@ function App() {
         <Filter></Filter>
       </div>
       <div className = "Content">
-      <Bond>
-      </Bond>
-      <Bond>
-      </Bond>
-      <Bond>
-      </Bond>
+      <BondList>
+      </BondList>
       </div>
     </div>
 

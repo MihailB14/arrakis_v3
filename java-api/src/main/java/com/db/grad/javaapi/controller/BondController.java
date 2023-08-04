@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/bond")
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BondController {
 
 
