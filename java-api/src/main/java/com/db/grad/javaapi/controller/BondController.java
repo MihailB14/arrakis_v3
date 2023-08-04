@@ -2,6 +2,7 @@ package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Bond;
+import com.db.grad.javaapi.model.User;
 import com.db.grad.javaapi.service.BondHandler;
 import com.db.grad.javaapi.service.BondService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +30,14 @@ public class BondController {
 
     @GetMapping()
     public List <Bond> getAllBonds() {
-        return bondService.getAllBonds();
+        return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
     }
 
+//    @GetMapping("/something")
 //    public List<Bond> getAllBondsForSpecificUser(){
-//        return bondService.getAllBondsForSpecificUser();
+//        return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
 //    }
+
 //    @GetMapping("/dogs/{id}")
 //    public ResponseEntity < Dog > getEmployeeById(@PathVariable(value = "id") Long id)
 //            throws ResourceNotFoundException {
