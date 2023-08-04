@@ -19,4 +19,20 @@ public class TradeHandler implements TradeService {
     public List<Trade> getAllTrades() {
         return itsTradeRepo.findAll();
     }
+
+    public Trade addTrade(Trade trade) {
+        return null;
+    }
+
+    public Trade updateTradeDetails(Trade tradeDetails) {
+        return null;
+    }
+
+    public boolean removeTrade(Long id) {
+        return false;
+    }
+
+    public Trade getTradeById(Long id) {
+        return null;
+    }
 }
