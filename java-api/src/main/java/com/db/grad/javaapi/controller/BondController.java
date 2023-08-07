@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +33,13 @@ public class BondController {
     @GetMapping()
     public List <Bond> getAllBonds() {
         return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
+    }
+
+    @GetMapping("/five-days")
+    public List<Bond> withinFiveDays(User user, String date) {
+        return bondService.returnBondsWithinFiveDays(new User("user2@gmail.com", "password"), //user
+                Date.valueOf(LocalDate.parse(date).minusDays(5)), //earlierDate
+                Date.valueOf(LocalDate.parse(date).plusDays(5))); //laterDate
     }
 
 //    @GetMapping("/something")

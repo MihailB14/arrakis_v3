@@ -6,6 +6,7 @@ import com.db.grad.javaapi.repository.BondRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -28,5 +29,10 @@ public class BondHandler implements BondService {
     @Override
     public List<Bond> getAllBondsForSpecificUser(User user) {
         return itsBondRepo.findAllForSpecificUser(user);
+    }
+
+    @Override
+    public List<Bond> returnBondsWithinFiveDays(User user, Date earlierDate, Date laterDate) {
+        return itsBondRepo.withinFiveDays(user, earlierDate, laterDate);
     }
 }
