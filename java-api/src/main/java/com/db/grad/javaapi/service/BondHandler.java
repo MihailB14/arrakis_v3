@@ -35,4 +35,24 @@ public class BondHandler implements BondService {
     public List<Bond> returnBondsWithinFiveDays(User user, Date earlierDate, Date laterDate) {
         return itsBondRepo.withinFiveDays(user, earlierDate, laterDate);
     }
+
+    @Override
+    public List<Bond> maturedLastFiveDays(User user, Date earlierDate, Date currentDate) {
+        return itsBondRepo.maturedLastFiveDays(user, earlierDate, currentDate);
+    }
+
+    @Override
+    public List<Bond> dueToday(User user, Date date) {
+        return itsBondRepo.dueToday(user, date);
+    }
+
+    @Override
+    public List<Bond> getBondByISIN(User user, String isin) {
+        return itsBondRepo.getBondByISIN(user, isin);
+    }
+
+    @Override
+    public List<Bond> getBondByCUSIP(User user, String cusip) {
+        return itsBondRepo.getBondByCUSIP(user, cusip);
+    }
 }

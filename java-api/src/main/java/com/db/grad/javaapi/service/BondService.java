@@ -15,4 +15,12 @@ public interface BondService {
     public List<Bond> getAllBondsForSpecificUser(User user);
 
     public List<Bond> returnBondsWithinFiveDays(User user, Date earlierDate, Date laterDate);
+
+    List<Bond> maturedLastFiveDays(User user, Date earlierDate, Date currentDate);
+
+    List<Bond> dueToday(User user, Date date);
+
+    List<Bond> getBondByISIN(User user, String isin);
+
+    List<Bond> getBondByCUSIP(User user, String cusip);
 }

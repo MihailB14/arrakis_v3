@@ -43,6 +43,31 @@ public class BondController {
                 Date.valueOf(LocalDate.parse(date).plusDays(5))); //laterDate
     }
 
+    @GetMapping("/matured-last-five-days/{date}")
+    public List<Bond> maturedLastFiveDays(@PathVariable("date") String date) {
+        return bondService.maturedLastFiveDays(new User("user2@gmail.com", "password"),
+                Date.valueOf(LocalDate.parse(date).minusDays(5)),
+                Date.valueOf(LocalDate.parse(date)));
+    }
+
+    @GetMapping("/due-today/{date}")
+    public List<Bond> dueToday(@PathVariable("date") String date) {
+        return bondService.dueToday(new User("user2@gmail.com", "password"),
+                Date.valueOf(LocalDate.parse(date)));
+    }
+
+    @GetMapping("/get-by-isin/{isin}")
+    public List<Bond> getBondByISIN(@PathVariable("isin") String isin) {
+        return bondService.getBondByISIN(new User("user2@gmail.com", "password"), isin);
+    }
+
+    @GetMapping("/get-by-cusip/{cusip}")
+    public List<Bond> getBondByCUSIP(@PathVariable("cusip") String cusip) {
+        return bondService.getBondByCUSIP(new User("user2@gmail.com", "password"), cusip);
+    }
+
+
+
 //    @GetMapping("/something")
 //    public List<Bond> getAllBondsForSpecificUser(){
 //        return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
