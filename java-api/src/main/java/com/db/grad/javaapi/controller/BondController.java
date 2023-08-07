@@ -7,6 +7,7 @@ import com.db.grad.javaapi.service.BondHandler;
 import com.db.grad.javaapi.service.BondService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -33,6 +34,11 @@ public class BondController {
         return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
     }
 
+    @GetMapping("/user/email")
+    public String getUserEmail(Authentication authentication){
+        String userEmail = authentication.getName();
+        return userEmail;
+    }
 //    @GetMapping("/something")
 //    public List<Bond> getAllBondsForSpecificUser(){
 //        return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
