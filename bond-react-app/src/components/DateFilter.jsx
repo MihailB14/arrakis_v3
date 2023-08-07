@@ -3,18 +3,18 @@ import { useState,useEffect, useContext} from 'react'
 import DatePicker from 'react-datepicker'
 import {Context} from '../QueryContext'
 import "react-datepicker/dist/react-datepicker.css"
-
 import {dateRange, getAllBonds} from '../services/bond-service'
-
+import moment from 'moment'
 const DateFilter = () => {
     const [periodVar, setPeriodVar] = useState("DateRange");
-    const [currentDate, setCurrentDate] = useState(new Date());
+    const [currentDate, setCurrentDate] = useState(new Date('2022-12-05'));
     const {queryFunction, setQueryFunction} = useContext(Context);
     useEffect(() => {
         if (periodVar == "DateRange") {
             // console.log("hi")
-            setQueryFunction(dateRange('2020-05-14'))
-            console.log("date range")
+            let dateString = moment(currentDate).format('YYYY-MM-DD')
+            setQueryFunction(dateRange(dateString))
+            console.log(dateString, queryFunction)
         }
         else {
             setQueryFunction(getAllBonds())
