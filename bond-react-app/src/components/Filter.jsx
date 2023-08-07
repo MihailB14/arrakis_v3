@@ -4,12 +4,15 @@ import DateFilter from './DateFilter';
 import CUSIPFilter from './CUSIPFilter';
 import ISINFilter from './ISINFilter';
 import ClientFilter from './ClientFilter';
-const Filter = () => {
+const Filter = ({setQuery}) => {
     const [filterVar, setFilterVar] = useState("Date");
     const [filterComp, setFilterComp] = useState(<DateFilter />)
+
+    const handleQueryChange = (q) =>{ setQuery(q) }
     useEffect(() => {
       switch (filterVar) {
         case "Date":
+          // setQuery('break')
           setFilterComp(<DateFilter />)
           break;
         case "ISIN":
@@ -24,7 +27,7 @@ const Filter = () => {
         default:
           break;
       }
-    }, [filterVar])
+    }, [filterVar, setQuery])
 
   const handleFilterChange = (event)=> {
     setFilterVar(event.target.value)

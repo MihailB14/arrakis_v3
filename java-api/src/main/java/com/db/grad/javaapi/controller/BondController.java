@@ -18,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/bond")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class BondController {
 
 
@@ -35,8 +35,9 @@ public class BondController {
         return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
     }
 
-    @GetMapping("/five-days")
-    public List<Bond> withinFiveDays(User user, String date) {
+    @GetMapping("/five-days/{date}")
+//    public List<Bond> withinFiveDays(User user, String date) {
+    public List<Bond> withinFiveDays(@PathVariable("date") String date) {
         return bondService.returnBondsWithinFiveDays(new User("user2@gmail.com", "password"), //user
                 Date.valueOf(LocalDate.parse(date).minusDays(5)), //earlierDate
                 Date.valueOf(LocalDate.parse(date).plusDays(5))); //laterDate

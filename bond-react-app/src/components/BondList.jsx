@@ -2,29 +2,31 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import {getAllBonds} from '../services/bond-service'
 
-const BondList = () => {
-    const [bondsFromAPI, setBondsFromAPI] = useState([])
+const BondList = ({bonds}) => {
+    const bondsFromAPI = bonds
+    // const [bondsFromAPI, setBondsFromAPI] = useState([])
     const [showDetails, setDetails] = useState(false)
+    // const [bondFunction, setBondFunction] = useState(getAllBonds())
     // const [query, setQuery] = useState(getAllBonds())
     // let f = getAllBonds().then(res => setAllBonds(res.data));
    
     
     // let res = getAllBonds().then((result) => console.log(result));
     
-      const GetBondsFromAPI = ()=> {
-            useEffect(() => {
-                getAllBonds()
-                .then(res => {
-                    setBondsFromAPI(res.data);
-                      console.log(res.data);
-                })
-                .catch(err => {
-                    setBondsFromAPI([]);
-                    console.log(err);
-                })
+    // const GetBondsFromAPI = ()=> {
+    //         useEffect(() => {
+    //             bondFunction
+    //             .then(res => {
+    //                 setBondsFromAPI(res.data);
+    //                   console.log(res.data);
+    //             })
+    //             .catch(err => {
+    //                 setBondsFromAPI([]);
+    //                 console.log(err);
+    //             })
                
-              }, [])}
-    GetBondsFromAPI();
+    //           }, [])}
+    // GetBondsFromAPI();
 
     return(
         <div>
