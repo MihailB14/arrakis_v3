@@ -6,9 +6,9 @@ CREATE TABLE dogs (
     name VARCHAR(250) NOT NULL,
     age INT NOT NULL
 );
-DROP TABLE IF EXISTS users;
+
 CREATE TABLE IF NOT EXISTS users (
-    email varchar(50) PRIMARY KEY NOT NULL,
+    email varchar(100) PRIMARY KEY NOT NULL,
     password VARCHAR(100) NOT NULL
 );
 
@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS books(
 CREATE TABLE IF NOT EXISTS book_users (
     book_user_id INT AUTO_INCREMENT PRIMARY KEY,
     book VARCHAR(100),
-    user_email VARCHAR(100)
+    user_email VARCHAR(100),
+    FOREIGN KEY (user_email) REFERENCES users(email)
 );
 
 CREATE TABLE IF NOT EXISTS bond(

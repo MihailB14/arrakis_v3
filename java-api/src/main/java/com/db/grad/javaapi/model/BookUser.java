@@ -13,8 +13,9 @@ public class BookUser {
     private int book_user_id;
     @Column(name = "book")
     private String book;
-    @Column(name = "user_email")
-    private String user_email;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_email", referencedColumnName = "email")
+    private User user_email;
 
 
 
@@ -34,10 +35,11 @@ public class BookUser {
     public void setBook_user_id(int book_user_id) {
         this.book_user_id = book_user_id;
     }
-    public String getUser() {
+
+    public User getUser_email() {
         return user_email;
     }
-    public void setUser(String user_email) {
+    public void setUser_email(User user_email) {
         this.user_email = user_email;
     }
 
