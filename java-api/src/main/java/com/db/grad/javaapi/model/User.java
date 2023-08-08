@@ -1,17 +1,11 @@
 package com.db.grad.javaapi.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "users")
-@Data
-public class User implements Serializable {
-    public User() {
-    }
+public class User {
 
     @Id
     @Column(name = "email")

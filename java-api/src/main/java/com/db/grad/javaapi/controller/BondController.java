@@ -33,6 +33,7 @@ public class BondController {
         return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
     }
 
+<<<<<<< HEAD
     @GetMapping("/five-days/{date}")
 //    public List<Bond> withinFiveDays(User user, String date) {
     public List<Bond> withinFiveDays(@PathVariable("date") String date) {
@@ -66,6 +67,8 @@ public class BondController {
 
 
 
+=======
+>>>>>>> parent of 3a29c0a (Firebase)
 //    @GetMapping("/something")
 //    public List<Bond> getAllBondsForSpecificUser(){
 //        return bondService.getAllBondsForSpecificUser(new User("user2@gmail.com", "password"));
